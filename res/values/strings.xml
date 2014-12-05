@@ -4,5 +4,18 @@
     <string name="app_name">Sp2014f_GroupD</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-
+    
+    <!-- 中村追記 -->
+    <!-- 各Viewで使用する文字列の定義 -->
+	<string name="bt_click1_1">実績入力</string>
+	<string name="bt_click1_2">目標設定</string>
+	<string name="bt_click1_3">統計表示</string>
+	
+	<string name="bt_click4_1">週/月切替</string>
+	<string name="bt_click4_2">戻る</string>
+	
+	<!-- 画面4名称 -->
+	<string name="title_activity_second">統計情報</string>
+    
+    
 </resources>
