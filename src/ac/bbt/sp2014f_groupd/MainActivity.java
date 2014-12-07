@@ -24,56 +24,65 @@ public class MainActivity extends Activity {
         // レイアウト設定ファイルの指定
         setContentView(R.layout.fragment_main);
 
-		// ボタンオブジェクト取得
+		// 目標入力ボタンオブジェクト取得
 		Button button1 = (Button)findViewById(R.id.button1_1);
+		//タグの設定
+		button1.setTag("button1_1");
 		// ボタンオブジェクトにクリックリスナー設定
-		button1.setOnClickListener(new ButtonClickListener1());
+		button1.setOnClickListener(new ButtonClickListener());
 
-		// ボタンオブジェクト取得
+		// 実績入力ボタンオブジェクト取得
 		Button button2 = (Button)findViewById(R.id.button1_2);
+		//タグの設定
+		button2.setTag("button1_2");
 		// ボタンオブジェクトにクリックリスナー設定
-		button2.setOnClickListener(new ButtonClickListener2());
+		button2.setOnClickListener(new ButtonClickListener());
 
-		// ボタンオブジェクト取得
+		// 統計情報ボタンオブジェクト取得
 		Button button3 = (Button)findViewById(R.id.button1_3);
+		//タグの設定
+		button3.setTag("button1_3");
 		// ボタンオブジェクトにクリックリスナー設定
-		button3.setOnClickListener(new ButtonClickListener3());
+		button3.setOnClickListener(new ButtonClickListener());
 		
 	}
 
 	// クリックリスナー定義
-	//画面2への遷移情報
-	class ButtonClickListener1 implements OnClickListener {
+	class ButtonClickListener implements OnClickListener {
 		// onClickメソッド(ボタンクリック時イベントハンドラ)
 		public void onClick(View v) {
 
-			// 画面2の情報を追記
+			// タグの取得
+			String tag = (String)v.getTag();
+			
+			//画面2への遷移情報(目標入力)
+			if(tag.equals("button1_1")){
+				
+				// インテントの生成(呼び出すクラスの指定)
+				Intent intent1 = new Intent(MainActivity.this, SecondlayoutActivity.class);
+				// 次のアクティビティの起動
+				startActivity(intent1);
+			
+			//画面3への遷移情報(日々実績入力)
+			}else if(tag.equals("button1_2")){
 
+				// インテントの生成(呼び出すクラスの指定)
+				Intent intent2 = new Intent(MainActivity.this, ThirdlayoutActivity.class);
+				// 次のアクティビティの起動
+				startActivity(intent2);
+			
+			//画面4への遷移情報(統計情報)			
+			}else if(tag.endsWith("button1_3")){
+
+				// インテントの生成(呼び出すクラスの指定)
+				Intent intent3 = new Intent(MainActivity.this, FourthlayoutActivity.class);
+				// 次のアクティビティの起動
+				startActivity(intent3);
+		
+			}
 		}
 	}
-	
-	//画面3への遷移情報
-	class ButtonClickListener2 implements OnClickListener {
-		// onClickメソッド(ボタンクリック時イベントハンドラ)
-		public void onClick(View v) {
 
-			// 画面3の情報を追記
-
-		}
-	}
-
-	//画面4への遷移情報
-	class ButtonClickListener3 implements OnClickListener {
-		// onClickメソッド(ボタンクリック時イベントハンドラ)
-		public void onClick(View v) {
-
-			// インテントの生成(呼び出すクラスの指定)
-			Intent intent = new Intent(MainActivity.this, FourthlayoutActivity.class);
-			// 次のアクティビティの起動
-			startActivity(intent);
-		}
-	}
-	
 	// onCreateOptionsMenuメソッド(オプションメニュー生成)
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {

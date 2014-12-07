@@ -10,10 +10,22 @@
 	<string name="bt_click1_1">実績入力</string>
 	<string name="bt_click1_2">目標設定</string>
 	<string name="bt_click1_3">統計表示</string>
-	
+
+	<string name="bt_click2_1">保存</string>
+	<string name="bt_click2_2">戻る</string>
+
+	<string name="bt_click3_1">保存</string>
+	<string name="bt_click3_2">戻る</string>
+				
 	<string name="bt_click4_1">週/月切替</string>
 	<string name="bt_click4_2">戻る</string>
 	
+	<!-- 画面2名称 -->
+	<string name="title_activity_second">目標入力</string>
+	
+	<!-- 画面3名称 -->
+	<string name="title_activity_third">日々実績入力</string>
+		
 	<!-- 画面4名称 -->
 	<string name="title_activity_fourth">統計情報</string>
     

@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class FourthlayoutActivity extends Activity { // Activityクラスを継承
+public class ThirdlayoutActivity extends Activity { // Activityクラスを継承
 
 	// onCreateメソッド(画面初期表示イベントハンドラ)
 	@Override
@@ -21,18 +21,18 @@ public class FourthlayoutActivity extends Activity { // Activityクラスを継�
 		// スーパークラスのonCreateメソッド呼び出し
         super.onCreate(savedInstanceState);
         // レイアウト設定ファイルの指定
-        setContentView(R.layout.fragment_fourthlayout);
+        setContentView(R.layout.fragment_thirdlayout);
 /*
     	// インテント取得
     	Intent data = getIntent();
 */        
 		// ボタンオブジェクト取得
-		Button button1 = (Button)findViewById(R.id.button4_1);
+		Button button1 = (Button)findViewById(R.id.button3_1);
 		// ボタンオブジェクトにクリックリスナー設定
 		button1.setOnClickListener(new ButtonClickListener1());
 		
 		// ボタンオブジェクト取得
-		Button button2 = (Button)findViewById(R.id.button4_2);
+		Button button2 = (Button)findViewById(R.id.button3_2);
 		// ボタンオブジェクトにクリックリスナー設定
 		button2.setOnClickListener(new ButtonClickListener2());
 		
@@ -43,7 +43,10 @@ public class FourthlayoutActivity extends Activity { // Activityクラスを継�
 		// onClickメソッド(ボタンクリック時イベントハンドラ)
 		public void onClick(View v) {
 
-		//まだ作成していません。中村
+			//保存処理はまだ未実装　中村
+			
+			// アクティビティ終了(画面クローズ)
+			finish();
 			
 		}
 	}

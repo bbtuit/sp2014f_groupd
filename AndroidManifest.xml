@@ -22,6 +22,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- 第2画面（目標入力画面） --> 
+ 
+        <activity
+            android:name="ac.bbt.sp2014f_groupd.SecondlayoutActivity"
+            android:label="@string/title_activity_second">
+        </activity>
+ 
+        <!-- 第3画面（実績入力画面） --> 
+        <activity
+            android:name="ac.bbt.sp2014f_groupd.ThirdlayoutActivity"
+            android:label="@string/title_activity_third">
+        </activity>       
         
         <!-- 第4画面（統計表示画面） --> 
         <activity
