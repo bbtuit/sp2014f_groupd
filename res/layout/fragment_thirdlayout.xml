@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 画面全体のスクロールバーの定義 -->
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_width="wrap_content"
-		android:layout_height="wrap_content" >
+		android:layout_height="wrap_content" 
+		android:orientation="vertical">
 			
 	<!-- レイアウトの定義 -->
 	<LinearLayout
@@ -14,16 +15,83 @@
 		<!-- Button(ボタン)の定義 -->
 		<Button
 			android:id="@+id/button3_1"
-			android:layout_width="wrap_content"
+			android:layout_width="150dp"
 			android:layout_height="wrap_content"
 			android:text="@string/bt_click3_1" />
 		
 		<Button
 			android:id="@+id/button3_2"
-			android:layout_width="wrap_content"
+			android:layout_width="150dp"
 			android:layout_height="wrap_content"
 			android:text="@string/bt_click3_2" />
-	
+
 	</LinearLayout>
 
-</ScrollView>
+ 	<TableLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+		<!-- 日付 -->
+		<TableRow>
+		    <TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/date_view"
+				android:textSize="18sp" />
+		    <EditText
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:inputType="text"
+				android:textSize="18sp" />
+		</TableRow>
+				
+		<!-- 実績時間 -->
+		<TableRow>
+		    <TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/time_word"
+				android:textSize="18sp" />		    
+		</TableRow>
+		<TableRow>
+			<Spinner
+				android:id="@+id/plus_minus"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:entries="@array/plus_minus" />
+			<Spinner
+				android:id="@+id/hour_number"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:entries="@array/hour_number" />
+		    <TextView 
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/hour_word"
+				android:textSize="18sp" />
+			<Spinner
+				android:id="@+id/minute_number"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:entries="@array/minute_number" />
+		    <TextView 
+				android:layout_width="1dp"
+				android:layout_height="wrap_content"
+				android:text="@string/minute_word"
+				android:textSize="18sp" />		    
+		</TableRow>
+		
+		<!-- カテゴリ -->
+		<TableRow>
+		    <TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/select_category_view"
+				android:textSize="18sp" />
+			<Spinner
+				android:id="@+id/select_category"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:entries="@array/select_category" />
+ 			</TableRow>
+	</TableLayout>	    
+</LinearLayout>

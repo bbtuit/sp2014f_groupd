@@ -16,9 +16,16 @@
 
 	<string name="bt_click3_1">保存</string>
 	<string name="bt_click3_2">戻る</string>
-				
+	<string name="date_view">日付：</string>
+	<string name="time_word">実績時間：</string>
+	<string name="hour_word">時間</string>
+	<string name="minute_word">分</string>
+	<string name="select_category_view">分類：</string>
+						
 	<string name="bt_click4_1">週/月切替</string>
 	<string name="bt_click4_2">戻る</string>
+	
+	
 	
 	<!-- 画面2名称 -->
 	<string name="title_activity_second">目標入力</string>
@@ -29,5 +36,29 @@
 	<!-- 画面4名称 -->
 	<string name="title_activity_fourth">統計情報</string>
     
+	
+	<string-array name="plus_minus">
+		<item>＋</item>
+		<item>−</item>
+	</string-array>
+
+	<string-array name="hour_number">
+		<item>1</item>
+		<item>3</item>
+		<item>5</item>
+	</string-array>
+
+	<string-array name="minute_number">
+		<item>15</item>
+		<item>30</item>
+		<item>45</item>
+	</string-array>
+					
+	<!-- 思ったのが講義最後にどのくらい勉強したかをアンケートで答えているので勉強時間の細分化がいいのではと思いました。中村 -->
+	<string-array name="select_category">
+		<item>講義視聴時間</item>
+		<item>投稿内容作成時間</item>
+		<item>調査時間</item>
+	</string-array>
     
 </resources>
