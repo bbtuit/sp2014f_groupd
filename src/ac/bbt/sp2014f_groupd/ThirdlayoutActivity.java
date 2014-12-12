@@ -16,11 +16,19 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import android.util.*;
 import android.view.Gravity;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Spinner;
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
+import android.app.TimePickerDialog;
+import android.content.DialogInterface;
+import android.widget.DatePicker;
+import android.widget.TimePicker;
 
 public class ThirdlayoutActivity extends Activity { // Activityクラスを継承
 
@@ -159,9 +167,30 @@ public class ThirdlayoutActivity extends Activity { // Activityクラスを継�
 */					
 				}
 			
-			// DBオブジェクトクローズ
-			db.close();
-				
+				// DBオブジェクトクローズ
+				db.close();
+/*	
+//エラーが出るため一時コメントアウト　中村
+				showDialog();
+
+				//メッセージ表示
+				private void showDialog() {
+					AlertDialog.Builder dialog = new AlertDialog.Builder(ThirdlayoutActivity.this);
+					dialog.setTitle("確認画面");
+					dialog.setMessage("保存しました。");
+					dialog.setPositiveButton("OK",new DialogInterface.OnClickListener() {
+			 
+						public void onClick(DialogInterface dialog,int whichButton) {
+							// 次のアクティビティの起動
+							finish();
+						}
+					});
+					dialog.show();
+				}
+
+			// 次のアクティビティの起動
+			//finish();
+*/			
 			//戻る処理
 			}else if(tag.endsWith("button3_2")){
 
