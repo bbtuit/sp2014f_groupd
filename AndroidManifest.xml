@@ -23,25 +23,28 @@
             </intent-filter>
         </activity>
 
-        <!-- 第2画面（目標入力画面） --> 
- 
+        <!-- 第2画面（目標入力画面） -->
+
         <activity
-            android:name="ac.bbt.sp2014f_groupd.SecondlayoutActivity"
-            android:label="@string/title_activity_second">
+            android:name=".SecondlayoutActivity"
+            android:label="@string/title_activity_second" >
         </activity>
- 
-        <!-- 第3画面（実績入力画面） --> 
+
+        <!-- 第3画面（実績入力画面） -->
         <activity
-            android:name="ac.bbt.sp2014f_groupd.ThirdlayoutActivity"
-            android:label="@string/title_activity_third">
-        </activity>       
-        
-        <!-- 第4画面（統計表示画面） --> 
-        <activity
-            android:name="ac.bbt.sp2014f_groupd.FourthlayoutActivity"
-            android:label="@string/title_activity_fourth">
+            android:name=".ThirdlayoutActivity"
+            android:label="@string/title_activity_third" >
         </activity>
-                
+
+        <!-- 第4画面（統計表示画面） -->
+        <activity
+            android:name=".FourthlayoutActivity"
+            android:label="@string/title_activity_fourth" >
+        </activity>
+        <activity
+            android:name=".CreateDailymemoryHelper"
+            android:label="@string/title_activity_create_dailymemory_helper" >
+        </activity>
     </application>
 
 </manifest>
