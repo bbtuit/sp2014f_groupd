@@ -90,6 +90,7 @@ public class ThirdlayoutActivity extends Activity { // Activityクラスを継�
 					//実績時間増加処理
 
 					// テーブル作成
+				try{
 					// SQL文定義
 						String sql
 							= "create table diary_memory_managment (" +
@@ -99,7 +100,11 @@ public class ThirdlayoutActivity extends Activity { // Activityクラスを継�
 								"life_time text not null)";
 						// SQL実行
 						db.execSQL(sql);
-		
+
+					}catch(Exception e){
+						Log.e("ERROR",e.toString());
+					}
+					
 					// データ登録
 					// トランザクション制御開始
 						db.beginTransaction();
