@@ -38,9 +38,10 @@
 				android:text="@string/date_view"
 				android:textSize="18sp" />
 		    <EditText
+		        android:id="@+id/date_id"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:inputType="text"
+				android:inputType="date"
 				android:textSize="18sp" />
 		</TableRow>
 				

@@ -7,8 +7,8 @@
     
     <!-- 中村追記 -->
     <!-- 各Viewで使用する文字列の定義 -->
-	<string name="bt_click1_1">実績入力</string>
-	<string name="bt_click1_2">目標設定</string>
+	<string name="bt_click1_1">目標設定</string>
+	<string name="bt_click1_2">実績入力</string>
 	<string name="bt_click1_3">統計表示</string>
 
 	<string name="bt_click2_1">保存</string>
@@ -21,7 +21,10 @@
 	<string name="hour_word">時間</string>
 	<string name="minute_word">分</string>
 	<string name="select_category_view">分類：</string>
-						
+	<string name="category_span_day">日</string>
+	<string name="category_span_week">週</string>
+	<string name="category_span_month">月</string>
+							
 	<string name="bt_click4_1">週/月切替</string>
 	<string name="bt_click4_2">戻る</string>
 		
