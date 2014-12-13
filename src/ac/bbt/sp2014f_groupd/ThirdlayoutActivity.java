@@ -92,35 +92,38 @@ public class ThirdlayoutActivity extends Activity { // Activityクラスを継�
 				//時間と分を合計してテーブル登録用データに変換→やり方がわからないため、とりあえず時間だけ登録する。
 				//int life_time = hour_nu + minute_nu;
 
-				//増加、減少の判定処理
-				if(in_decrease.equals("＋")){
-				
-					//実績時間増加処理
+				try{
+					// SQL文定義
+						String sql
+							= "create table diary_memory_managment (" +
+								"_id integer primary key autoincrement," +
+								"day text not null," +
+								"category text not null," +
+								"unit text not null," +
+								"life_time text not null)";
 
-						// テーブル作成
-					try{
-						// SQL文定義
-							String sql
-								= "create table diary_memory_managment (" +
-									"_id integer primary key autoincrement," +
-									"day text not null," +
-									"category text not null," +
-									"life_time text not null)";
-							// SQL実行
-							db.execSQL(sql);
+					//テーブル削除	
+					//テーブル内容を変更するために一時的に行った。中村
+					//	String sql = "drop table diary_memory_managment";
+											
+						// SQL実行
+						db.execSQL(sql);
 	
-						}catch(Exception e){
-							Log.e("ERROR",e.toString());
-						}
-					
+					}catch(Exception e){
+						Log.e("ERROR",e.toString());
+					}
+	
 					// データ登録
-					// トランザクション制御開始
+					try{
+					
+						// トランザクション制御開始
 						db.beginTransaction();
 		
 						// 登録データ設定
 						ContentValues val = new ContentValues();
 						val.put("day", date_time.getText().toString());
 						val.put("category", sel_category);
+						val.put("unit", in_decrease);
 						//★本当は時間＋分にしたいけどやりから分からず★
 						val.put("life_time", hour_nu);
 						// データ登録
@@ -130,45 +133,17 @@ public class ThirdlayoutActivity extends Activity { // Activityクラスを継�
 						db.setTransactionSuccessful();
 		
 						// トランザクション制御終了
-						db.endTransaction();				
-				}else if (in_decrease.equals("−")){
-/*　未作成				
-					//実績時間減少処理
-
-					// テーブル作成
-					// SQL文定義
-						String sql
-							= "create table diary_memory_managment (" +
-								"_id integer primary key autoincrement," +
-								"day text not null," +
-								"category text not null," +
-								"life_time text not null)";
-						// SQL実行
-						db.execSQL(sql);
-		
-					// データ登録
-					// トランザクション制御開始
-						db.beginTransaction();
-		
-						// 登録データ設定
-						ContentValues val = new ContentValues();
-						val.put("day", date_time.getText().toString());
-						val.put("category", sel_category.getText().toString());
-						//★本当は時間＋分にしたいけどやりから分からず★
-						val.put("life_time", hour_nu.getText().toString());
-						// データ登録
-						db.update("diary_memory_managment", null, val);
-		
-						// コミット
-						db.setTransactionSuccessful();
-		
-						// トランザクション制御終了
-						db.endTransaction();				
-*/					
-				}
+						db.endTransaction();
+					}catch(Exception e){
+						Log.e("ERROR" ,e.toString());
+					}
 			
 				// DBオブジェクトクローズ
 				db.close();
+				
+				// 次のアクティビティの起動
+				finish();
+				
 /*	
 //エラーが出るため一時コメントアウト　中村
 				showDialog();
