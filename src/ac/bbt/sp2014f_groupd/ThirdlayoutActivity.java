@@ -97,21 +97,21 @@ public class ThirdlayoutActivity extends Activity { // Activityクラスを継�
 				
 					//実績時間増加処理
 
-					// テーブル作成
-				try{
-					// SQL文定義
-						String sql
-							= "create table diary_memory_managment (" +
-								"_id integer primary key autoincrement," +
-								"day text not null," +
-								"category text not null," +
-								"life_time text not null)";
-						// SQL実行
-						db.execSQL(sql);
-
-					}catch(Exception e){
-						Log.e("ERROR",e.toString());
-					}
+						// テーブル作成
+					try{
+						// SQL文定義
+							String sql
+								= "create table diary_memory_managment (" +
+									"_id integer primary key autoincrement," +
+									"day text not null," +
+									"category text not null," +
+									"life_time text not null)";
+							// SQL実行
+							db.execSQL(sql);
+	
+						}catch(Exception e){
+							Log.e("ERROR",e.toString());
+						}
 					
 					// データ登録
 					// トランザクション制御開始
