@@ -13,20 +13,23 @@
 		<!-- Button(ボタン)の定義 -->
 		<Button
 			android:id="@+id/button1_1"
-			android:layout_width="wrap_content"
+			android:layout_width="0dp"
 			android:layout_height="wrap_content"
+			android:layout_weight="1"
 			android:text="@string/bt_click1_1" />
 		
 		<Button
 			android:id="@+id/button1_2"
-			android:layout_width="wrap_content"
+			android:layout_width="0dp"
 			android:layout_height="wrap_content"
+			android:layout_weight="1"
 			android:text="@string/bt_click1_2" />
 		
 		<Button
 			android:id="@+id/button1_3"
-			android:layout_width="wrap_content"
+			android:layout_width="0dp"
 			android:layout_height="wrap_content"
+			android:layout_weight="1"
 			android:text="@string/bt_click1_3" />
 				
 	</LinearLayout>

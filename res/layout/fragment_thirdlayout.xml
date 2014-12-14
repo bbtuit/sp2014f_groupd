@@ -56,26 +56,31 @@
 		<TableRow>
 			<Spinner
 				android:id="@+id/plus_minus"
-				android:layout_width="wrap_content"
+				android:layout_width="0dp"
+				android:layout_weight="1"
 				android:layout_height="wrap_content"
 				android:entries="@array/plus_minus" />
 			<Spinner
 				android:id="@+id/hour_number"
-				android:layout_width="wrap_content"
+				android:layout_width="0dp"
+				android:layout_weight="1"
 				android:layout_height="wrap_content"
 				android:entries="@array/hour_number" />
 		    <TextView 
-				android:layout_width="wrap_content"
+				android:layout_width="0dp"
+				android:layout_weight="1"
 				android:layout_height="wrap_content"
 				android:text="@string/hour_word"
 				android:textSize="18sp" />
 			<Spinner
 				android:id="@+id/minute_number"
-				android:layout_width="wrap_content"
+				android:layout_width="0dp"
+				android:layout_weight="1"
 				android:layout_height="wrap_content"
 				android:entries="@array/minute_number" />
 		    <TextView 
-				android:layout_width="1dp"
+				android:layout_width="0dp"
+				android:layout_weight="1"
 				android:layout_height="wrap_content"
 				android:text="@string/minute_word"
 				android:textSize="18sp" />		    
