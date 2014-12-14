@@ -11,8 +11,22 @@
 	<string name="bt_click1_2">実績入力</string>
 	<string name="bt_click1_3">統計表示</string>
 
+	<!-- 画面2用ボタン定義 -->
 	<string name="bt_click2_1">保存</string>
 	<string name="bt_click2_2">戻る</string>
+	<string name="bt_click2_3">削除</string>
+
+	<!-- 画面2用見出し定義 -->
+	<string name="title_category">目標設定項目</string>
+	<string name="title_period">目標設定期間</string>
+	<string name="title_hours">目標時間</string>
+
+	<!-- 画面2用array定義 -->
+	<string-array name="select_period">
+		<item>日</item>
+		<item>週</item>
+		<item>月</item>
+	</string-array>
 
 	<string name="bt_click3_1">保存</string>
 	<string name="bt_click3_2">戻る</string>
