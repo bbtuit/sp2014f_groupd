@@ -6,16 +6,16 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class CreateDailymemoryHelper extends SQLiteOpenHelper {
 
-    // ƒRƒ“ƒXƒgƒ‰ƒNƒ^’è‹`
+    // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿å®šç¾©
     public CreateDailymemoryHelper(Context con){
-        // SQLiteOpenHelper‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^ŒÄ‚Ño‚µ
+        // SQLiteOpenHelperã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿å‘¼ã³å‡ºã—
         super(con,"dbsample",null,1);
     }
 
-    // onCreateƒƒ\ƒbƒh
+    // onCreateãƒ¡ã‚½ãƒƒãƒ‰
     @Override
     public void onCreate(SQLiteDatabase db) {
-    	// SQL•¶’è‹`
+    	// create tableæ–‡å®šç¾©
     	String sql
     	="create table diary_memory_managment (" +
     		"diary_id integer primary key autoincrement," +
@@ -23,11 +23,11 @@ public class CreateDailymemoryHelper extends SQLiteOpenHelper {
     		"categoryl text not null," +
     		"life_time integer)";
     	
-        // SQLÀs
+        // SQLå®Ÿè¡Œ
         db.execSQL(sql);
     }
 
-    // onUpgradeƒƒ\ƒbƒh
+    // onUpgradeãƒ¡ã‚½ãƒƒãƒ‰
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldversion, int newversion) {
     }

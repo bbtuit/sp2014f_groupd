@@ -12,6 +12,23 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+import android.util.*;
+import android.view.Gravity;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
+import android.widget.Spinner;
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
+import android.app.TimePickerDialog;
+import android.content.DialogInterface;
+import android.widget.DatePicker;
+import android.widget.TimePicker;
 
 public class SecondlayoutActivity extends Activity { // Activityクラスを継承
 
@@ -22,12 +39,16 @@ public class SecondlayoutActivity extends Activity { // Activityクラスを継�
         super.onCreate(savedInstanceState);
         // レイアウト設定ファイルの指定
         setContentView(R.layout.fragment_secondlayout);
+
+
 /*
     	// インテント取得
     	Intent data = getIntent();
  */       
 		// ボタンオブジェクト取得
 		Button button1 = (Button)findViewById(R.id.button2_1);
+		//タグの設定
+		//button1.setTag("button2_1");
 		// ボタンオブジェクトにクリックリスナー設定
 		button1.setOnClickListener(new ButtonClickListener1());
 		
@@ -38,19 +59,20 @@ public class SecondlayoutActivity extends Activity { // Activityクラスを継�
 		
 	}
 
+
 	// クリックリスナー定義
 	class ButtonClickListener1 implements OnClickListener {
 		// onClickメソッド(ボタンクリック時イベントハンドラ)
 		public void onClick(View v) {
 
 			//保存処理はまだ未実装　中村
-/*			
+			
 			// アクティビティ終了(画面クローズ)
 			finish();
-*/			
+			
 		}
 	}
-	
+
 	// クリックリスナー定義
 	class ButtonClickListener2 implements OnClickListener {
 		// onClickメソッド(ボタンクリック時イベントハンドラ)
