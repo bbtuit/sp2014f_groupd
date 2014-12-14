@@ -1,72 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 画面全体のLinerLayout定義 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-    android:orientation="vertical" >
- 
-	<!--  「保存」、「戻る」ボタンのレイアウト定義 -->
-	<LinearLayout
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-    	android:layout_gravity="center_horizontal"
-    	android:orientation="horizontal" >
-		
-		<!-- Button2_1(「保存」ボタン)の定義 -->
-		<Button
-			android:id="@+id/button2_1"
-			android:layout_width="150dp"
-			android:layout_height="wrap_content"
-			android:text="@string/bt_click2_1" />
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".SecondlayoutActivity" >
 
-		<!-- Button2_2(「戻る」ボタン)の定義 -->		
-		<Button
-			android:id="@+id/button2_2"
-			android:layout_width="150dp"
-			android:layout_height="wrap_content"
-			android:text="@string/bt_click2_2" />
-	</LinearLayout>
+    <!-- 「保存」、「戻る」ボタンのレイアウト定義 -->
 
-	<!-- 「項目選択」の見出し定義 -->
-	<TextView
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="@string/title_category"
-		android:textSize="18sp" />
-	
-	<!-- 「項目選択」のドロップダウン式スピナー定義 -->
-	<Spinner
-   		android:id="@+id/select_category"
-   		android:layout_width="wrap_content"
-   		android:layout_height="wrap_content"
-		android:entries="@array/select_category" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal" >
 
-	<!-- 「目標期間選択」の見出し定義 -->
-	<TextView
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="@string/title_period"
-		android:textSize="18sp" />
-	
-	<!-- 「目標期間選択」のドロップダウン式スピナー定義 -->
-	<Spinner
-   		android:id="@+id/select_period"
-   		android:layout_width="wrap_content"
-   		android:layout_height="wrap_content"
-		android:entries="@array/select_period" />
-	
-	<!-- 「目標時間数」の見出し定義 -->
-	<TextView
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="@string/title_hours"
-		android:textSize="18sp" />
+        <!-- Button2_1(「保存」ボタン)の定義 -->
+        <Button
+            android:id="@+id/button2_1"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/bt_click2_1" />
 
-	<!-- 「目標時間数」の入力用EditText定義 -->	
-	<EditText
-		android:id="@+id/target_hours"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:inputType="text"
-		android:textSize="18sp" />
+        <!-- Button2_2(「戻る」ボタン)の定義 -->
+        <Button
+            android:id="@+id/button2_2"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/bt_click2_2" />
+    </LinearLayout>
+
+    <!-- マージン挿入 -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="25dip" />
+
+    <!-- 「項目選択」の見出し定義 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_category"
+        android:textSize="18sp" />
+
+    <!-- 「項目選択」のドロップダウン式スピナー定義 -->
+    <Spinner
+        android:id="@+id/select_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/select_category" />
+
+    <!-- マージン挿入 -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="25dip" />
+
+    <!-- 「目標期間選択」の見出し定義 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_period"
+        android:textSize="18sp" />
+
+    <!-- 「目標期間選択」のドロップダウン式スピナー定義 -->
+    <Spinner
+        android:id="@+id/select_period"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/select_period" />
+
+    <!-- マージン挿入 -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="25dip" />
+
+    <!-- 「目標時間数」の見出し定義 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_hours"
+        android:textSize="18sp" />
+
+    <!-- 「目標時間数」の入力用EditText定義 -->
+    <EditText
+        android:id="@+id/target_hours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:textSize="18sp" />
+
+    <!-- マージン挿入 -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="25dip" />
+
+    <!-- Button2_3(「削除」ボタン)の定義 -->
+    <Button
+        android:id="@+id/button2_3"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="@string/bt_click2_3" />
 </LinearLayout>
