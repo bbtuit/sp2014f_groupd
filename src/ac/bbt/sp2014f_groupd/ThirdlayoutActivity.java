@@ -73,8 +73,6 @@ public class ThirdlayoutActivity extends Activity { // Activityクラスを継�
 			//保存処理
 			if(tag.equals("button3_1")){
 				
-				//保存時メッセージ(未実装)　By 中村
-				
 				//入力情報取得
 				EditText date_time = (EditText)findViewById(R.id.date_id);
 				Spinner in_dec = (Spinner)findViewById(R.id.plus_minus);
@@ -109,63 +107,46 @@ public class ThirdlayoutActivity extends Activity { // Activityクラスを継�
 						// SQL実行
 						db.execSQL(sql);
 	
-					}catch(Exception e){
+				}catch(Exception e){
 						Log.e("ERROR",e.toString());
-					}
+				}
 	
+				// データ登録
+				try{
+				
+					// トランザクション制御開始
+					db.beginTransaction();
+		
+					// 登録データ設定
+					ContentValues val = new ContentValues();
+					val.put("day", date_time.getText().toString());
+					val.put("category", sel_category);
+					val.put("unit", in_decrease);
+					//★本当は時間＋分にしたいけどやりから分からず★
+					val.put("life_time", hour_nu);
 					// データ登録
-					try{
-					
-						// トランザクション制御開始
-						db.beginTransaction();
+					db.insert("diary_memory_managment", null, val);
 		
-						// 登録データ設定
-						ContentValues val = new ContentValues();
-						val.put("day", date_time.getText().toString());
-						val.put("category", sel_category);
-						val.put("unit", in_decrease);
-						//★本当は時間＋分にしたいけどやりから分からず★
-						val.put("life_time", hour_nu);
-						// データ登録
-						db.insert("diary_memory_managment", null, val);
+					// コミット
+					db.setTransactionSuccessful();
 		
-						// コミット
-						db.setTransactionSuccessful();
-		
-						// トランザクション制御終了
-						db.endTransaction();
-					}catch(Exception e){
-						Log.e("ERROR" ,e.toString());
-					}
+					// トランザクション制御終了
+					db.endTransaction();
+				}catch(Exception e){
+					Log.e("ERROR" ,e.toString());
+				}
 			
 				// DBオブジェクトクローズ
 				db.close();
 				
-				// 次のアクティビティの起動
-				finish();
-				
-/*	
-//エラーが出るため一時コメントアウト　中村
+				//保存時メッセージ
 				showDialog();
 
 				//メッセージ表示
-				private void showDialog() {
-					AlertDialog.Builder dialog = new AlertDialog.Builder(ThirdlayoutActivity.this);
-					dialog.setTitle("確認画面");
-					dialog.setMessage("保存しました。");
-					dialog.setPositiveButton("OK",new DialogInterface.OnClickListener() {
-			 
-						public void onClick(DialogInterface dialog,int whichButton) {
-							// 次のアクティビティの起動
-							finish();
-						}
-					});
-					dialog.show();
-				}
 
 			// 次のアクティビティの起動
 			//finish();
-*/			
+			
 			//戻る処理
 			}else if(tag.endsWith("button3_2")){
 
@@ -173,6 +154,21 @@ public class ThirdlayoutActivity extends Activity { // Activityクラスを継�
 				finish();
 		
 			}
+		}
+
+		private void showDialog() {
+			AlertDialog.Builder dialog = new AlertDialog.Builder(ThirdlayoutActivity.this);
+			dialog.setTitle("確認画面");
+			dialog.setMessage("保存しました。");
+			dialog.setPositiveButton("OK",new DialogInterface.OnClickListener() {
+	 
+				public void onClick(DialogInterface dialog,int whichButton) {
+					// 次のアクティビティの起動
+					finish();
+				}
+			});
+			dialog.show();
+			
 		}
 	}
 
