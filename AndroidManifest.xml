@@ -42,7 +42,7 @@
             android:label="@string/title_activity_fourth" >
         </activity>
         <activity
-            android:name=".CreateDailymemoryHelper"
+            android:name=".CreateTargetManagementHelper"
             android:label="@string/title_activity_create_dailymemory_helper" >
         </activity>
     </application>

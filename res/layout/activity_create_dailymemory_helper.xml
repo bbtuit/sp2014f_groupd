@@ -3,6 +3,6 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ac.bbt.sp2014f_groupd.CreateDailymemoryHelper"
+    tools:context="ac.bbt.sp2014f_groupd.CreateTargetManagementHelper"
     tools:ignore="MergeRootFrame" />
 

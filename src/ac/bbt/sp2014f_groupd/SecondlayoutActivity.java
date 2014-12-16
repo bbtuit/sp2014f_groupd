@@ -15,7 +15,6 @@ import android.widget.EditText;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 import android.util.*;
 import android.view.Gravity;
 import android.widget.TableLayout;
@@ -32,6 +31,9 @@ import android.widget.TimePicker;
 
 public class SecondlayoutActivity extends Activity { // Activityクラスを継承
 
+	CreateTargetManagementHelper helper = null;
+	SQLiteDatabase db = null;	
+	
 	// onCreateメソッド(画面初期表示イベントハンドラ)
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +59,8 @@ public class SecondlayoutActivity extends Activity { // Activityクラスを継�
 		// ボタンオブジェクトにクリックリスナー設定
 		button2.setOnClickListener(new ButtonClickListener2());
 		
+		//DB作成
+		helper = new CreateTargetManagementHelper(SecondlayoutActivity.this);
 	}
 
 
@@ -65,8 +69,69 @@ public class SecondlayoutActivity extends Activity { // Activityクラスを継�
 		// onClickメソッド(ボタンクリック時イベントハンドラ)
 		public void onClick(View v) {
 
-			//保存処理はまだ未実装　中村
+			//入力情報取得
+			//選択した作業項目の値取得
+			Spinner sele_category = (Spinner)findViewById(R.id.select_category);
+			String sel_category = (String)sele_category.getSelectedItem();
 			
+			//選択した目標期間の値取得
+			Spinner sele_period = (Spinner)findViewById(R.id.select_period);
+			String sel_period = (String)sele_period.getSelectedItem();		
+			
+			//入力した目標時間数の値取得
+			EditText date_time = (EditText)findViewById(R.id.target_hours);			
+			
+			// 該当DBオブジェクト取得
+			db = helper.getWritableDatabase();
+			
+			try{
+				// SQL文定義
+					String sql
+						= "create table target_managment (" +
+							"target_category_id integer primary key autoincrement," +
+							"category text not null," +
+							"target_set text not null," +
+							"range integer not null)";
+			
+					// SQL実行
+					db.execSQL(sql);			
+			
+			}catch(Exception e){
+				Log.e("ERROR",e.toString());
+			}
+			
+			// データ登録
+			try{
+			
+				// トランザクション制御開始
+				db.beginTransaction();
+	
+				// 登録データ設定
+				ContentValues val = new ContentValues();
+				val.put("category", sel_category);
+				val.put("target_set", sel_period);
+				val.put("range", date_time.getText().toString());
+				// データ登録
+				db.insert("diary_memory_managment", null, val);
+	
+				// コミット
+				db.setTransactionSuccessful();
+	
+				// トランザクション制御終了
+				db.endTransaction();
+			}catch(Exception e){
+				Log.e("ERROR" ,e.toString());
+			}
+		
+			// DBオブジェクトクローズ
+			db.close();
+			
+			//保存時メッセージ
+			//showDialog();
+				
+				
+				
+				
 			// アクティビティ終了(画面クローズ)
 			finish();
 			

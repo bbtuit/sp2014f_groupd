@@ -4,27 +4,17 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class CreateDailymemoryHelper extends SQLiteOpenHelper {
+public class CreateTargetManagementHelper extends SQLiteOpenHelper {
 
     // コンストラクタ定義
-    public CreateDailymemoryHelper(Context con){
+    public CreateTargetManagementHelper(Context con){
         // SQLiteOpenHelperのコンストラクタ呼び出し
-        super(con,"dbsample",null,1);
+        super(con,"sp2014f_groupd",null,1);
     }
 
     // onCreateメソッド
     @Override
     public void onCreate(SQLiteDatabase db) {
-    	// create table文定義
-    	String sql
-    	="create table diary_memory_managment (" +
-    		"diary_id integer primary key autoincrement," +
-    		"day integer not null," +
-    		"categoryl text not null," +
-    		"life_time integer)";
-    	
-        // SQL実行
-        db.execSQL(sql);
     }
 
     // onUpgradeメソッド
