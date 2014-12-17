@@ -72,8 +72,10 @@ public class MainActivity extends Activity {
 		helper = new CreateDiaryMemoryManagementHelper(MainActivity.this);
 		//目標設定のDBは未定義
 	}
-/*
-	protected void onStart(Bundle savedInstanceState) {
+/*　作成中
+	@Override	
+	protected void onStart() {
+        super.onStart();
 
 		// メッセージ表示用
 		String message  = "";
