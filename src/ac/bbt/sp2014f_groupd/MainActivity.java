@@ -105,10 +105,11 @@ public class MainActivity extends Activity {
 			db = helper.getReadableDatabase();
 
 			// 列名定義
-			String columns[] = {"day","category","unit","life_time"};
-
+			//String columns[] = {"day","category","unit","life_time"};
+			String columns[] = {"category","sum(life_time)"};
+			
 			// データ取得
-			Cursor cursor = db.query("diary_memory_managment", columns, null, null, null, null, null);
+			Cursor cursor = db.query("diary_memory_managment", columns, null, null, "category", null, null);
 
 			// テーブルレイアウトの表示範囲を設定
 			tablelayout.setStretchAllColumns(true);
@@ -116,29 +117,17 @@ public class MainActivity extends Activity {
 			// テーブル一覧のヘッダ部設定
 			TableRow headrow = new TableRow(MainActivity.this);
 			TextView headtxt1 = new TextView(MainActivity.this);
-			headtxt1.setText("日付");
+			headtxt1.setText("分類");
 			headtxt1.setGravity(Gravity.CENTER_HORIZONTAL);
 			headtxt1.setWidth(60);
 
 			TextView headtxt2 = new TextView(MainActivity.this);
-			headtxt2.setText("分類");
+			headtxt2.setText("実績時間(H)");
 			headtxt2.setGravity(Gravity.CENTER_HORIZONTAL);
 			headtxt2.setWidth(100);
 
-			TextView headtxt3 = new TextView(MainActivity.this);
-			headtxt3.setText("単位");
-			headtxt3.setGravity(Gravity.CENTER_HORIZONTAL);
-			headtxt3.setWidth(60);
-
-			TextView headtxt4 = new TextView(MainActivity.this);
-			headtxt4.setText("時間");
-			headtxt4.setGravity(Gravity.CENTER_HORIZONTAL);
-			headtxt4.setWidth(60);
-
 			headrow.addView(headtxt1);
 			headrow.addView(headtxt2);
-			headrow.addView(headtxt3);
-			headrow.addView(headtxt4);
 			tablelayout.addView(headrow);
 
 			// 取得したデータをテーブル明細部に設定
@@ -146,30 +135,20 @@ public class MainActivity extends Activity {
 
 				TableRow row = new TableRow(MainActivity.this);
 				
-				TextView day_txt = new TextView(MainActivity.this);
-				day_txt.setGravity(Gravity.CENTER_HORIZONTAL);
-				day_txt.setText(cursor.getString(0));
-				
 				TextView category_txt = new TextView(MainActivity.this);
 				category_txt.setGravity(Gravity.CENTER_HORIZONTAL);
-				category_txt.setText(cursor.getString(1));
+				category_txt.setText(cursor.getString(0));
 				
-				TextView unit_txt = new TextView(MainActivity.this);
-				unit_txt.setGravity(Gravity.CENTER_HORIZONTAL);
-				unit_txt.setText(cursor.getString(2));
-
 				TextView life_time_txt = new TextView(MainActivity.this);
 				life_time_txt.setGravity(Gravity.CENTER_HORIZONTAL);
-				life_time_txt.setText(cursor.getString(3));
+				life_time_txt.setText(cursor.getString(1));
 				
-				row.addView(day_txt);
 				row.addView(category_txt);
-				row.addView(unit_txt);
 				row.addView(life_time_txt);
 				tablelayout.addView(row);
 
 				// メッセージ設定
-				message = "データを取得しました！";
+				message = "あなたの目標に対する実績です";
 			}
 
 		}catch(Exception e){
@@ -192,32 +171,7 @@ public class MainActivity extends Activity {
 
 			// タグの取得
 			String tag = (String)v.getTag();
-/*	　初期表示時にDB検索する機能は未実装
-			// メッセージ表示用
-			String message  = "";
-			TextView label = (TextView)findViewById(R.id.tv_message);
 
-			// 入力情報取得
-			EditText date_time = (EditText)findViewById(R.id.date_id);
-			Spinner in_dec = (Spinner)findViewById(R.id.plus_minus);
-			String in_decrease = (String)in_dec.getSelectedItem();
-			Spinner hour_num = (Spinner)findViewById(R.id.hour_number);
-			String hour_nu = (String)hour_num.getSelectedItem();
-			Spinner minute_num = (Spinner)findViewById(R.id.minute_number);
-			String minute_nu = (String)minute_num.getSelectedItem();				
-			Spinner sele_category = (Spinner)findViewById(R.id.select_category);
-			String sel_category = (String)sele_category.getSelectedItem();				
-			
-			// テーブルレイアウトオブジェクト取得
-			TableLayout tablelayout = (TableLayout)findViewById(R.id.tl_list);
-
-			// テーブルレイアウトのクリア
-			tablelayout.removeAllViews();
-
-			// 該当DBオブジェクト取得
-			db = helper.getWritableDatabase();
-*/			
-			
 			//画面2への遷移情報(目標入力)
 			if(tag.equals("button1_1")){
 				
