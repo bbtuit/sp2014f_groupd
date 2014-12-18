@@ -32,6 +32,7 @@ import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -72,10 +73,18 @@ public class MainActivity extends Activity {
 		helper = new CreateDiaryMemoryManagementHelper(MainActivity.this);
 		//目標設定のDBは未定義
 	}
-/*　作成中
+
 	@Override	
 	protected void onStart() {
-        super.onStart();
+		super.onStart();
+/*　検証用サンプル　中村
+		// 選択された値をトースト機能で画面表示
+		Toast.makeText(MainActivity.this,
+						"test",
+						Toast.LENGTH_SHORT).show();
+
+	}
+*/
 
 		// メッセージ表示用
 		String message  = "";
@@ -175,7 +184,7 @@ public class MainActivity extends Activity {
 		// メッセージ表示  
 		label.setText(message);
 	}
-*/	
+	
 	// クリックリスナー定義
 	class ButtonClickListener implements OnClickListener {
 		// onClickメソッド(ボタンクリック時イベントハンドラ)
