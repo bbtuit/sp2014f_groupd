@@ -4,36 +4,48 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content" >
 
-	<!-- レイアウトの定義 -->
+	<!-- レイアウトの定義 -->    
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:orientation="horizontal" >
-
-		<!-- Button(ボタン)の定義 -->
-		<Button
-			android:id="@+id/button1_1"
-			android:layout_width="0dp"
+		android:orientation="vertical" >
+    
+		<LinearLayout
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_weight="1"
-			android:text="@string/bt_click1_1" />
-		
-		<Button
-			android:id="@+id/button1_2"
-			android:layout_width="0dp"
-			android:layout_height="wrap_content"
-			android:layout_weight="1"
-			android:text="@string/bt_click1_2" />
-		
-		<Button
-			android:id="@+id/button1_3"
-			android:layout_width="0dp"
-			android:layout_height="wrap_content"
-			android:layout_weight="1"
-			android:text="@string/bt_click1_3" />
-				
-	</LinearLayout>
-
+			android:orientation="horizontal" >
+	
+			<!-- Button(ボタン)の定義 -->
+			<Button
+				android:id="@+id/button1_1"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:text="@string/bt_click1_1" />
+			
+			<Button
+				android:id="@+id/button1_2"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:text="@string/bt_click1_2" />
+			
+			<Button
+				android:id="@+id/button1_3"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:text="@string/bt_click1_3" />
+		</LinearLayout>
+ <!-- 
+		<TableLayout
+		    android:id="@+id/tl_list"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+		</TableLayout>						    
+ --> 			    		
+	</LinearLayout>   
+	
 </ScrollView>
 
 <!--　デフォルトであった以下部分は除外しました。何か問題があれば連絡をお願い致します。中村

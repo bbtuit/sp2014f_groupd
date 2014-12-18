@@ -10,6 +10,7 @@
 	<string name="bt_click1_1">目標設定</string>
 	<string name="bt_click1_2">実績入力</string>
 	<string name="bt_click1_3">統計表示</string>
+	<string name="tv_message">-----</string>
 
 	<!-- 画面2用ボタン定義 -->
 	<string name="bt_click2_1">保存</string>
