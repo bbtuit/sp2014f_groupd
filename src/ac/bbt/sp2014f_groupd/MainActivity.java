@@ -24,7 +24,6 @@ import android.os.Build;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 import android.util.*;
 import android.view.Gravity;
 import android.app.AlertDialog;
@@ -38,8 +37,11 @@ import android.widget.LinearLayout;
 public class MainActivity extends Activity {
 
 	CreateDiaryMemoryManagementHelper helper = null;
+	CreateTargetManagementHelper helper2 = null;
+
 	//目標管理のDB検索は未実装　中村
 	SQLiteDatabase db = null;	
+	SQLiteDatabase db2 = null;
 	
 	// onCreateメソッド(画面初期表示イベントハンドラ)
 	@Override
@@ -72,7 +74,7 @@ public class MainActivity extends Activity {
 		
 		//DB作成
 		helper = new CreateDiaryMemoryManagementHelper(MainActivity.this);
-		//目標設定のDBは未定義
+		helper2 = new CreateTargetManagementHelper(MainActivity.this);
 	}
 
 	@Override	
@@ -99,19 +101,23 @@ public class MainActivity extends Activity {
 
 		// 該当DBオブジェクト取得
 		db = helper.getWritableDatabase();
+		db2 = helper2.getWritableDatabase();
 		
 		// データ取得
 		try{
 			// 該当DBオブジェクト取得
 			db = helper.getReadableDatabase();
-
+			db2 = helper2.getReadableDatabase();
+			
 			// 列名定義
 			//String columns[] = {"day","category","unit","life_time"};
 			String columns[] = {"category","sum(life_time)"};
+			String columns2[] = {"category","sum(range)"};
 			
 			// データ取得
 			Cursor cursor = db.query("diary_memory_managment", columns, null, null, "category", null, null);
-
+			Cursor cursor2 = db2.query("target_managment", columns2, null, null,  "category", null, null);
+			
 			// テーブルレイアウトの表示範囲を設定
 			tablelayout.setStretchAllColumns(true);
 
@@ -127,13 +133,20 @@ public class MainActivity extends Activity {
 			headtxt2.setGravity(Gravity.CENTER_HORIZONTAL);
 			headtxt2.setWidth(100);
 
+			TextView headtxt3 = new TextView(MainActivity.this);
+			headtxt3.setText("目標時間(H)");
+			headtxt3.setGravity(Gravity.CENTER_HORIZONTAL);
+			headtxt3.setWidth(100);
+			
 			headrow.addView(headtxt1);
 			headrow.addView(headtxt2);
+			headrow.addView(headtxt3);
 			tablelayout.addView(headrow);
 
 			// 取得したデータをテーブル明細部に設定
+			while(cursor2.moveToNext()){
+						
 			while(cursor.moveToNext()){
-
 				TableRow row = new TableRow(MainActivity.this);
 				
 				TextView category_txt = new TextView(MainActivity.this);
@@ -147,14 +160,20 @@ public class MainActivity extends Activity {
 				TextView bar_txt = new TextView(MainActivity.this);
 				bar_txt.setGravity(Gravity.CENTER_HORIZONTAL);
 				bar_txt.setText("/");
+
+				TextView range_txt = new TextView(MainActivity.this);
+				range_txt.setGravity(Gravity.CENTER_HORIZONTAL);
+				range_txt.setText(cursor2.getString(0));
 				
 				row.addView(category_txt);
 				row.addView(life_time_txt);
 				row.addView(bar_txt);
+				row.addView(range_txt);
 				tablelayout.addView(row);
 
 				// メッセージ設定
 				message = "あなたの目標に対する実績です";
+			}
 			}
 
 		}catch(Exception e){
