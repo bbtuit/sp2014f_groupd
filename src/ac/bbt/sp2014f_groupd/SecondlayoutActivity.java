@@ -156,4 +156,3 @@ public class SecondlayoutActivity extends Activity { // Activityクラスを継�
 	}
 
 }
-
