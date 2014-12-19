@@ -33,6 +33,7 @@ import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.widget.Toast;
+import android.widget.LinearLayout;
 
 public class MainActivity extends Activity {
 
@@ -142,9 +143,14 @@ public class MainActivity extends Activity {
 				TextView life_time_txt = new TextView(MainActivity.this);
 				life_time_txt.setGravity(Gravity.CENTER_HORIZONTAL);
 				life_time_txt.setText(cursor.getString(1));
+
+				TextView bar_txt = new TextView(MainActivity.this);
+				bar_txt.setGravity(Gravity.CENTER_HORIZONTAL);
+				bar_txt.setText("/");
 				
 				row.addView(category_txt);
 				row.addView(life_time_txt);
+				row.addView(bar_txt);
 				tablelayout.addView(row);
 
 				// メッセージ設定

@@ -112,8 +112,9 @@ public class SecondlayoutActivity extends Activity { // Activityクラスを継�
 				val.put("target_set", sel_period);
 				val.put("range", date_time.getText().toString());
 				// データ登録
-				db.insert("diary_memory_managment", null, val);
-	
+				//db.insert("diary_memory_managment", null, val);
+				db.insert("target_managment", null, val);
+				
 				// コミット
 				db.setTransactionSuccessful();
 	
