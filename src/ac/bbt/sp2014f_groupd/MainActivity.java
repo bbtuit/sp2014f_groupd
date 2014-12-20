@@ -112,7 +112,7 @@ public class MainActivity extends Activity {
 			// 列名定義
 			//String columns[] = {"day","category","unit","life_time"};
 			String columns[] = {"category","sum(life_time)"};
-			String columns2[] = {"category","sum(range)"};
+			String columns2[] = {"range"};
 			
 			// データ取得
 			Cursor cursor = db.query("diary_memory_managment", columns, null, null, "category", null, null);
@@ -126,24 +126,49 @@ public class MainActivity extends Activity {
 			TextView headtxt1 = new TextView(MainActivity.this);
 			headtxt1.setText("分類");
 			headtxt1.setGravity(Gravity.CENTER_HORIZONTAL);
-			headtxt1.setWidth(60);
+			headtxt1.setWidth(50);
 
 			TextView headtxt2 = new TextView(MainActivity.this);
 			headtxt2.setText("実績時間(H)");
 			headtxt2.setGravity(Gravity.CENTER_HORIZONTAL);
-			headtxt2.setWidth(100);
+			headtxt2.setWidth(50);
 
 			TextView headtxt3 = new TextView(MainActivity.this);
-			headtxt3.setText("目標時間(H)");
+			headtxt3.setText("　");
 			headtxt3.setGravity(Gravity.CENTER_HORIZONTAL);
-			headtxt3.setWidth(100);
+			headtxt3.setWidth(50);
+			
+			TextView headtxt4 = new TextView(MainActivity.this);
+			headtxt4.setText("目標時間(H)");
+			headtxt4.setGravity(Gravity.CENTER_HORIZONTAL);
+			headtxt4.setWidth(50);
 			
 			headrow.addView(headtxt1);
 			headrow.addView(headtxt2);
 			headrow.addView(headtxt3);
+			headrow.addView(headtxt4);
 			tablelayout.addView(headrow);
 
 			// 取得したデータをテーブル明細部に設定
+/*
+			while(cursor2.moveToNext()){
+				while(cursor.moveToNext()){
+					if(cursor.getString(0) == "講義視聴時間"){
+						
+					}else if(cursor.getString(1) == "投稿内容作成時間"){
+						
+					}else if(cursor.getString(2) == "調査時間"){
+						
+					}
+		
+					
+					// メッセージ設定
+					message = "あなたの目標に対する実績です";
+				}
+			}
+*/			
+			
+			
 			while(cursor2.moveToNext()){
 						
 			while(cursor.moveToNext()){
