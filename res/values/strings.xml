@@ -73,9 +73,12 @@
 					
 	<!-- 思ったのが講義最後にどのくらい勉強したかをアンケートで答えているので勉強時間の細分化がいいのではと思いました。中村 -->
 	<string-array name="select_category">
-		<item>講義視聴時間</item>
-		<item>投稿内容作成時間</item>
-		<item>調査時間</item>
+		<item>講義視聴（AC）</item>
+		<item>講義視聴（ACMobile）</item>
+		<item>投稿内容作成</item>
+		<item>調査</item>
+		<item>課題作成</item>
+		<item>ミーティング</item>
 	</string-array>
     
 </resources>
